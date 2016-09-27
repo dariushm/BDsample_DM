@@ -1,0 +1,13 @@
+1.0 #maxtime
+10 #ka
+20 #Dtot 
+8 #leglen 
+1.0 #bindrad 
+0.001 #eps.scale
+0.001 #dtscale 
+100000 #Nrep 
+8 #Ntheta bins 
+8 #Ndihedral bins
+8 #outbins, theta 
+6 #outbins, dihed
+30000 #iter between writes

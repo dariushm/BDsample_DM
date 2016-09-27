@@ -1,0 +1,22 @@
+matX0 = dlmread('rate_at_x0_1_dt1.68885e-08.dat');
+matXdx = dlmread('rate_at_x0_1.02513_dt1.68885e-08.dat');
+
+matBDsim = (matX0+matXdx)/2;
+
+ktonlyDtnoDr = dlmread('rate_for_Dtrans_only_dt1.68885e-08.dat');
+ktreal = dlmread('rate_vs_time_calc_dt1.68885e-08.dat');
+
+semilogx(matBDsim(:,1),matBDsim(:,2),'r','LineWidth',2)
+hold on
+semilogx(ktreal(:,1),ktreal(:,2),'b','LineWidth',2)
+semilogx(ktonlyDtnoDr(:,1),ktonlyDtnoDr(:,2),'b--','LineWidth',2)
+
+
+xlabel('Mem. Recruiter Conc. ({\mu}m^{-2})','FontSize',16);
+ylabel({'[Complex]/[Complex]_0'},'FontSize',16);
+set(gca,'FontSize',16);
+h=legend('Simulation','Theory','The','PPHi-PMHi','Location','SouthEast');
+set(h,'FontSize',12);
+ylim([0 1.3])
+set(gcf,'Color','w')
+saveas(gcf, 'yeastsmalllowconc.fig', 'fig')

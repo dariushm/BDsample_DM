@@ -1,0 +1,45 @@
+
+d[0]=0;
+d[1]=0.7853981633 ;
+d[2]=1.57079632679 ; 
+d[3]=2.35619449019 ;
+d[4]=3.141592653589793 ;
+
+name[0]=0 ;
+name[1]=qt1 ;
+name[2]=half ;
+name[3]=qt2 ;
+name[4]=pi ;
+str=dih_ ;
+str0=x0_ ;
+for i in 1 1.25 1.5 1.75 2 2.25   ; do 
+dir0=`echo $str0$i` ;
+
+for j in  `seq 1 1 4` ; do
+dir1=`echo $str${name[$j]}` ;
+
+echo "2 #npro" >parm.x$i.dih${name[$j]}.inp ;
+echo "2 #nmol" >>parm.x$i.dih${name[$j]}.inp;
+echo "0.1 #maxtime" >>parm.x$i.dih${name[$j]}.inp ;
+echo "1 #nreaction" >>parm.x$i.dih${name[$j]}.inp;
+echo "3 #Nspecies" >>parm.x$i.dih${name[$j]}.inp;
+echo  "10 #rate">>parm.x$i.dih${name[$j]}.inp ;
+echo "0.001 #eps.scale" >>parm.x$i.dih${name[$j]}.inp ;
+echo "0.001 #dtscale " >>parm.x$i.dih${name[$j]}.inp;
+echo "30000 #statwrite" >>parm.x$i.dih${name[$j]}.inp ;
+echo "100000 #Nrep " >>parm.x$i.dih${name[$j]}.inp;
+echo "27 #Dtot " >>parm.x$i.dih${name[$j]}.inp;
+echo "8 #leglen " >>parm.x$i.dih${name[$j]}.inp;
+echo "5 #Nx0 " >>parm.x$i.dih${name[$j]}.inp;
+echo "$i #x0 " >>parm.x$i.dih${name[$j]}.inp;
+echo "5 #Nthet0 " >>parm.x$i.dih${name[$j]}.inp;
+echo "${d[$j]} #dihed0 " >>parm.x$i.dih${name[$j]}.inp;
+echo "8 #thet1bins " >>parm.x$i.dih${name[$j]}.inp;
+echo "6 #dih bins " >>parm.x$i.dih${name[$j]}.inp;
+echo "8 #orientbins " >>parm.x$i.dih${name[$j]}.inp;
+
+done;
+done
+
+
+

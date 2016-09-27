@@ -1,0 +1,53 @@
+
+NOTE: to make these, object files must already be compiled in code_RD,
+so first must compile e.g. rd_gen_reweightPBC in directory code_RD
+to also compile object files.
+
+
+
+Calculate survival probability for a pair of molecules using the method of H.X. Zhou.
+Each version of the program incorporates rotational motion and/or orientational constraints
+on association and loops over initial orientations for each separation
+
+
+survive_prob.cpp : translational diffusion only, this problem is exactly solvable but
+useful for determining accuracy of the numerical approach
+
+survive_prob_nwrite.cpp : same as above, just creates smaller arrays.
+
+survive_prob_rate.cpp : translational diffusion only, this problem is exactly solvable but
+useful for determining accuracy of the numerical approach. In this version, it only
+calculates survival probability at contact to determine the reaction rate vs. time.
+
+
+
+survive_prob_rot_thet.cpp : in addition to translation, one of the proteins rotates
+around its COM.
+
+survive_prob_rot2_thet.cpp : in addition to translation, both of the proteins rotate
+around their COMS.
+
+survive_prob_rot_orient.cpp : in addition to translation, one of the proteins rotates
+around its COM, AND there is an angular dependence on the association via the 
+orientation of the rotating molecule
+
+survive_prob_rot2_orient.cpp : in addition to translation, both of the proteins rotate
+around their COMS, AND the two molecules have an orientation restriction on
+their  association.
+
+survive_prob_rot2_orient2.cpp : in addition to translation, both of the proteins rotate
+around their COMS, AND the two molecules have an orientation restriction on
+their  association that is different than the one above.
+
+survive_prob_rotfull_orient.cpp : in addition to translation, both of the proteins rotate
+around their COMS, AND the two molecules have an orientation restriction on
+their  association AND the molecule orientation (not just the leg) is used to determine
+association depending on this angle as well.
+
+
+
+
+
+
+
+average_**.cpp : These programs are for analysis, for taking averages over degrees of freedom
